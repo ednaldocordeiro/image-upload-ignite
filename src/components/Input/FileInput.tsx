@@ -74,6 +74,8 @@ const FileInputBase: ForwardRefRenderFunction<
         return;
       }
 
+      console.log(event);
+
       setImageUrl('');
       setLocalImageUrl('');
       setError('image', null);
@@ -85,14 +87,16 @@ const FileInputBase: ForwardRefRenderFunction<
       const formData = new FormData();
 
       formData.append(event.target.name, event.target.files[0]);
-      formData.append('key', process.env.NEXT_PUBLIC_IMGBB_API_KEY);
+      formData.append('key', '6762b9f1bb9bb2d1a57544183066028c');
 
       const { CancelToken } = axios;
       const source = CancelToken.source();
       setCancelToken(source);
 
       const config = {
-        headers: { 'content-type': 'multipart/form-data' },
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
         onUploadProgress: (e: ProgressEvent) => {
           setProgress(Math.round((e.loaded * 100) / e.total));
         },
