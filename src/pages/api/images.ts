@@ -3,7 +3,7 @@ import fauna from 'faunadb';
 
 const { query } = fauna;
 const client = new fauna.Client({
-  secret: 'fnAE_bRcJmAAVpU9sp_VlNwLlueCSEQ5EbZpquzL',
+  secret: process.env.FAUNA_API_KEY,
 });
 
 interface ImagesQueryResponse {
